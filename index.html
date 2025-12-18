@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeVista | Premium Real Estate Solutions</title>
+    <title>HomeVista | Premium Real Estate - Buy Sell Rent Properties</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ===== CSS RESET & VARIABLES ===== */
+        /* ===== CSS VARIABLES ===== */
         :root {
-            --primary: #1a5276;
-            --primary-dark: #154360;
-            --secondary: #e67e22;
-            --secondary-dark: #d35400;
-            --accent: #2e86c1;
-            --light: #f8f9fa;
-            --dark: #2c3e50;
-            --gray: #7f8c8d;
-            --light-gray: #ecf0f1;
-            --success: #27ae60;
+            --primary: #0d4c92;
+            --primary-dark: #0a3a6d;
+            --primary-light: #e8f4ff;
+            --secondary: #ff6b35;
+            --secondary-dark: #e55a2b;
+            --accent: #2d9cdb;
+            --light: #ffffff;
+            --dark: #1a1a2e;
+            --gray: #64748b;
+            --light-gray: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
-            --transition: all 0.3s ease;
-            --border-radius: 12px;
-            --gradient-primary: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
-            --gradient-secondary: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --border-radius: 16px;
+            --gradient-primary: linear-gradient(135deg, #0d4c92 0%, #2d9cdb 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff9a3c 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --gradient-light: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
         }
 
+        /* ===== RESET & BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -37,102 +42,139 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             color: var(--dark);
-            background-color: #fff;
+            background-color: var(--light);
             overflow-x: hidden;
+            position: relative;
         }
 
         h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
             line-height: 1.3;
         }
 
         .container {
             width: 100%;
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .section-padding {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            position: relative;
         }
 
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             color: var(--dark);
             position: relative;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .section-title h2:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 120px;
+            height: 5px;
             background: var(--gradient-secondary);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .section-title p {
             color: var(--gray);
-            font-size: 1.1rem;
-            max-width: 750px;
-            margin: 20px auto 0;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 30px auto 0;
+            line-height: 1.8;
         }
 
         .highlight {
             color: var(--secondary);
+            position: relative;
+        }
+
+        .highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 107, 53, 0.2);
+            z-index: -1;
         }
 
         .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: var(--border-radius);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.05rem;
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            text-align: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            left: 100%;
         }
 
         .btn-primary {
             background: var(--gradient-primary);
             color: white;
-            box-shadow: 0 5px 15px rgba(26, 82, 118, 0.2);
+            box-shadow: 0 8px 25px rgba(13, 76, 146, 0.25);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 82, 118, 0.3);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(13, 76, 146, 0.35);
         }
 
         .btn-secondary {
             background: var(--gradient-secondary);
             color: white;
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.2);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.25);
         }
 
         .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.35);
         }
 
         .btn-outline {
@@ -144,13 +186,25 @@
         .btn-outline:hover {
             background: var(--primary);
             color: white;
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
 
-        /* ===== HEADER & NAVIGATION ===== */
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.35);
+        }
+
+        /* ===== HEADER ===== */
         .main-header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow);
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             position: fixed;
             width: 100%;
             top: 0;
@@ -160,58 +214,67 @@
 
         .main-header.scrolled {
             padding: 5px 0;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 22px 0;
             transition: var(--transition);
         }
 
+        /* Logo */
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none;
+            position: relative;
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             background: var(--gradient-primary);
-            border-radius: 10px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px;
+            margin-right: 15px;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(13, 76, 146, 0.2);
+            transition: var(--transition);
+        }
+
+        .logo:hover .logo-icon {
+            transform: rotate(10deg) scale(1.1);
         }
 
         .logo-text h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--primary);
-            margin-bottom: 3px;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
         }
 
         .logo-text p {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--gray);
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             font-weight: 500;
         }
 
-        /* Main Navigation */
+        /* Navigation */
         .main-nav ul {
             display: flex;
             list-style: none;
+            gap: 40px;
         }
 
         .main-nav ul li {
-            margin-left: 35px;
             position: relative;
         }
 
@@ -219,10 +282,18 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             transition: var(--transition);
-            padding: 5px 0;
+            padding: 8px 0;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-nav ul li a i {
+            font-size: 1rem;
+            opacity: 0.7;
         }
 
         .main-nav ul li a:after {
@@ -251,6 +322,7 @@
         .header-contact {
             display: flex;
             align-items: center;
+            gap: 20px;
         }
 
         .header-phone {
@@ -258,88 +330,138 @@
             align-items: center;
             background: var(--gradient-primary);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            margin-right: 20px;
-            box-shadow: 0 4px 12px rgba(26, 82, 118, 0.2);
+            box-shadow: 0 5px 20px rgba(13, 76, 146, 0.2);
             transition: var(--transition);
         }
 
         .header-phone:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(26, 82, 118, 0.3);
+            box-shadow: 0 10px 25px rgba(13, 76, 146, 0.3);
         }
 
         .header-phone i {
-            margin-right: 8px;
+            margin-right: 10px;
             font-size: 1.1rem;
         }
 
         .mobile-menu-btn {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--primary);
             cursor: pointer;
             background: none;
             border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: var(--primary-light);
         }
 
         /* ===== HERO SECTION ===== */
         .hero-section {
-            background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background: linear-gradient(135deg, rgba(13, 76, 146, 0.9) 0%, rgba(45, 156, 219, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
-            padding: 180px 0 120px;
-            text-align: center;
+            padding: 200px 0 150px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
         .hero-content {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
             animation: fadeInUp 1s ease;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 25px;
             line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .hero-content p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            max-width: 750px;
+            font-size: 1.3rem;
+            margin-bottom: 45px;
+            opacity: 0.95;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-stat p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         /* ===== FEATURED PROPERTIES ===== */
         .featured-properties {
-            background-color: var(--light);
+            background-color: var(--light-gray);
+            position: relative;
         }
 
         .property-filters {
             display: flex;
             justify-content: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
 
         .filter-btn {
-            padding: 12px 25px;
+            padding: 14px 28px;
             background: white;
             border: 2px solid var(--light-gray);
             border-radius: 50px;
@@ -349,10 +471,10 @@
             transition: var(--transition);
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
         .filter-btn i {
-            margin-right: 8px;
             font-size: 1.1rem;
         }
 
@@ -360,15 +482,15 @@
         .filter-btn.active {
             background: var(--gradient-primary);
             color: white;
-            border-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(26, 82, 118, 0.2);
+            border-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(13, 76, 146, 0.2);
         }
 
         .properties-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 35px;
         }
 
         .property-card {
@@ -381,7 +503,7 @@
         }
 
         .property-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
             box-shadow: var(--shadow-hover);
         }
 
@@ -391,15 +513,16 @@
             left: 20px;
             background: var(--gradient-secondary);
             color: white;
-            padding: 5px 15px;
+            padding: 8px 20px;
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-weight: 700;
+            font-size: 0.9rem;
             z-index: 2;
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
         }
 
         .property-image {
-            height: 240px;
+            height: 260px;
             overflow: hidden;
             position: relative;
         }
@@ -408,47 +531,57 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .property-card:hover .property-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .property-info {
-            padding: 25px;
+            padding: 30px;
         }
 
         .property-price {
-            font-size: 1.6rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: var(--primary);
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .property-price span {
+            font-size: 0.9rem;
+            color: var(--gray);
+            font-weight: 500;
         }
 
         .property-title {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
             color: var(--dark);
         }
 
         .property-location {
             color: var(--gray);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
         .property-location i {
-            margin-right: 8px;
             color: var(--accent);
         }
 
         .property-features {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
             border-bottom: 1px solid var(--light-gray);
         }
 
@@ -457,28 +590,156 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            background: var(--primary-light);
+            transition: var(--transition);
+        }
+
+        .feature:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .feature:hover i,
+        .feature:hover span {
+            color: white;
         }
 
         .feature i {
             color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 5px;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
         }
 
         .feature span {
             font-size: 0.9rem;
-            color: var(--gray);
+            color: var(--dark);
+            font-weight: 500;
         }
 
         .property-actions {
             display: flex;
-            gap: 10px;
+            gap: 15px;
         }
 
         .property-actions .btn {
             flex: 1;
-            padding: 12px;
-            font-size: 0.9rem;
+            padding: 14px;
+            font-size: 0.95rem;
+        }
+
+        /* ===== PROPERTY CALCULATOR ===== */
+        .calculator-section {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculator-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .calculator-container h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .calculator-container p {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .calculator-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .calc-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .calc-group label {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .calc-input {
+            padding: 16px 20px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .calc-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+        }
+
+        .calc-results {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .calc-results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .calc-result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .calc-result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--secondary);
         }
 
         /* ===== SERVICES ===== */
@@ -488,298 +749,209 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
         }
 
         .service-card {
-            background-color: white;
+            background: var(--light-gray);
             border-radius: var(--border-radius);
-            padding: 40px 30px;
+            padding: 45px 35px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
             border-top: 5px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
             box-shadow: var(--shadow-hover);
-            border-top-color: var(--secondary);
+        }
+
+        .service-card:hover:before {
+            height: 100%;
+            opacity: 0.05;
         }
 
         .service-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(26, 82, 118, 0.1);
-            border-radius: 50%;
+            width: 90px;
+            height: 90px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
+            margin: 0 auto 30px;
             transition: var(--transition);
+            color: white;
+            font-size: 2.2rem;
+            box-shadow: 0 10px 25px rgba(13, 76, 146, 0.2);
         }
 
         .service-card:hover .service-icon {
-            background: var(--gradient-primary);
-            transform: scale(1.1);
-        }
-
-        .service-icon i {
-            font-size: 2rem;
-            color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon i {
-            color: white;
+            background: var(--gradient-secondary);
+            transform: rotate(10deg) scale(1.1);
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.7rem;
+            margin-bottom: 20px;
             color: var(--dark);
-        }
-
-        /* ===== ABOUT ===== */
-        .about-section {
-            background-color: var(--light);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-image {
             position: relative;
+            z-index: 2;
         }
 
-        .about-image img {
-            width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .experience-badge {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            background: var(--gradient-secondary);
-            color: white;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow);
-        }
-
-        .experience-badge span:first-child {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .experience-badge span:last-child {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .about-text h3 {
-            font-size: 2.2rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
+        .service-card p {
             color: var(--gray);
+            position: relative;
+            z-index: 2;
         }
 
-        .features-list {
-            list-style: none;
-            margin-top: 30px;
-        }
-
-        .features-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .features-list li i {
-            color: var(--success);
-            margin-right: 12px;
-            font-size: 1.2rem;
-            margin-top: 3px;
-        }
-
-        /* ===== STATS ===== */
-        .stats-section {
-            background: var(--gradient-primary);
+        /* ===== WHATSAPP AUTOMATION ===== */
+        .whatsapp-section {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
-            padding: 80px 0;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
         }
 
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .stat-item p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonials-section {
-            background-color: white;
-        }
-
-        .testimonials-slider {
-            max-width: 900px;
+        .whatsapp-container {
+            max-width: 1000px;
             margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-slide {
-            background-color: white;
-            border-radius: var(--border-radius);
-            padding: 40px;
-            box-shadow: var(--shadow);
-            margin: 20px;
             text-align: center;
-            display: none;
-            animation: fadeIn 0.8s ease;
+            position: relative;
+            z-index: 2;
         }
 
-        .testimonial-slide.active {
-            display: block;
+        .whatsapp-container h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
 
-        .testimonial-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 30px;
-            color: var(--dark);
-            line-height: 1.8;
+        .whatsapp-container p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .whatsapp-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
         }
 
-        .author-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            border: 3px solid var(--light-gray);
-        }
-
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-            gap: 10px;
-        }
-
-        .testimonial-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--light-gray);
-            cursor: pointer;
+        .whatsapp-feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: var(--transition);
         }
 
-        .testimonial-dot.active {
-            background-color: var(--primary);
-            transform: scale(1.3);
+        .whatsapp-feature:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        /* ===== CONTACT ===== */
+        .whatsapp-feature i {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .whatsapp-feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* ===== CONTACT SECTION ===== */
         .contact-section {
-            background-color: var(--light);
+            background-color: var(--light-gray);
         }
 
         .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 60px;
         }
 
         .contact-info h3 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--dark);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         .contact-details {
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .contact-item i {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: var(--gradient-primary);
             color: white;
-            border-radius: 50%;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            margin-right: 15px;
+            font-size: 1.5rem;
+            margin-right: 20px;
             flex-shrink: 0;
         }
 
+        .contact-item.whatsapp i {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
         .contact-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
         }
 
         .contact-form {
-            background-color: white;
-            padding: 40px;
+            background: white;
+            padding: 50px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
         }
@@ -787,65 +959,68 @@
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 25px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             font-weight: 600;
             color: var(--dark);
+            font-size: 1.05rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 14px 18px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 18px 22px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1.05rem;
             transition: var(--transition);
             font-family: 'Poppins', sans-serif;
+            background: var(--light-gray);
         }
 
         .form-control:focus {
             border-color: var(--primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
+            box-shadow: 0 0 0 4px rgba(13, 76, 146, 0.1);
+            background: white;
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 180px;
             resize: vertical;
         }
 
         /* ===== FOOTER ===== */
         .main-footer {
-            background-color: var(--dark);
+            background: var(--gradient-dark);
             color: white;
-            padding: 80px 0 30px;
+            padding: 100px 0 40px;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 70px;
         }
 
         .footer-logo h2 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .footer-logo p {
-            color: #bbb;
-            margin-bottom: 25px;
-            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            line-height: 1.8;
         }
 
         .social-links {
@@ -857,26 +1032,26 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
             color: white;
             text-decoration: none;
             transition: var(--transition);
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
+            background: var(--secondary);
+            transform: translateY(-5px);
         }
 
         .footer-links h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
 
         .footer-links h3:after {
@@ -884,9 +1059,10 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 3px;
+            width: 60px;
+            height: 4px;
             background-color: var(--secondary);
+            border-radius: 2px;
         }
 
         .footer-links ul {
@@ -894,97 +1070,75 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 12px;
+            margin-bottom: 18px;
         }
 
         .footer-links ul li a {
-            color: #bbb;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: var(--transition);
             display: flex;
             align-items: center;
-        }
-
-        .footer-links ul li a i {
-            margin-right: 10px;
-            font-size: 0.9rem;
+            gap: 12px;
         }
 
         .footer-links ul li a:hover {
             color: white;
-            padding-left: 5px;
+            padding-left: 10px;
+        }
+
+        .footer-links ul li a i {
+            font-size: 0.9rem;
+            opacity: 0.7;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bbb;
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
         }
 
-        /* ===== WHATSAPP FLOATING BUTTON ===== */
+        /* ===== WHATSAPP FLOATING ===== */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
             z-index: 999;
             transition: var(--transition);
             animation: pulse 2s infinite;
         }
 
+        .whatsapp-float span {
+            font-size: 0.75rem;
+            margin-top: 2px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        /* ===== BACK TO TOP ===== */
-        .back-to-top {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            background: var(--gradient-primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(26, 82, 118, 0.3);
-            z-index: 999;
-            transition: var(--transition);
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
         }
 
         /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -1006,7 +1160,7 @@
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
             }
             70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
             }
             100% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
@@ -1016,25 +1170,30 @@
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 1200px) {
             .hero-content h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .section-title h2 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+            
+            .properties-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             }
         }
 
         @media (max-width: 992px) {
             .main-nav {
                 position: fixed;
-                top: 90px;
+                top: 95px;
                 left: -100%;
                 width: 100%;
                 background-color: white;
-                transition: left 0.4s ease;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                padding: 30px;
+                transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                padding: 40px;
                 z-index: 999;
+                border-radius: 0 0 30px 30px;
             }
 
             .main-nav.active {
@@ -1043,36 +1202,25 @@
 
             .main-nav ul {
                 flex-direction: column;
-            }
-
-            .main-nav ul li {
-                margin: 0 0 20px 0;
+                gap: 30px;
             }
 
             .mobile-menu-btn {
-                display: block;
-            }
-
-            .header-phone {
-                margin-right: 0;
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-
-            .header-phone span {
-                display: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .section-title h2 {
                 font-size: 2.5rem;
             }
 
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .properties-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            .form-row {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1087,14 +1235,14 @@
             }
 
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .section-title h2 {
                 font-size: 2.2rem;
             }
 
-            .form-row {
+            .properties-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1105,7 +1253,7 @@
 
             .filter-btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 350px;
                 justify-content: center;
             }
 
@@ -1116,75 +1264,95 @@
 
             .hero-buttons .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 350px;
+            }
+
+            .hero-stats {
+                gap: 40px;
             }
 
             .property-actions {
                 flex-direction: column;
             }
 
-            .about-content {
+            .contact-container {
+                grid-template-columns: 1fr;
                 gap: 40px;
             }
 
-            .experience-badge {
-                width: 120px;
-                height: 120px;
-                right: 0;
+            .contact-form {
+                padding: 35px 25px;
+            }
+
+            .whatsapp-float {
+                width: 65px;
+                height: 65px;
+                bottom: 30px;
+                right: 30px;
+                font-size: 2rem;
+            }
+
+            .calculator-box {
+                padding: 30px 25px;
+            }
+
+            .calculator-inputs {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 576px) {
             .hero-content h1 {
-                font-size: 1.9rem;
+                font-size: 2.2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
             }
 
             .section-title h2 {
-                font-size: 1.9rem;
+                font-size: 2rem;
             }
 
-            .property-price {
-                font-size: 1.4rem;
+            .header-phone span {
+                display: none;
             }
 
-            .property-title {
-                font-size: 1.2rem;
+            .header-phone {
+                padding: 12px 18px;
             }
 
-            .contact-form {
-                padding: 30px 20px;
+            .service-card {
+                padding: 35px 25px;
             }
 
-            .testimonial-slide {
-                padding: 30px 20px;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
-            .whatsapp-float {
-                width: 55px;
-                height: 55px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 1.6rem;
+            .whatsapp-container h2 {
+                font-size: 2.2rem;
             }
 
-            .back-to-top {
-                width: 45px;
-                height: 45px;
-                bottom: 85px;
-                right: 20px;
+            .whatsapp-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
     </style>
 </head>
 <body>
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/918651744312?text=Hello%20HomeVista%2C%20I%20am%20interested%20in%20your%20properties" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/918651744312?text=Hello%20HomeVista%2C%20I%20visited%20your%20website%20and%20need%20property%20assistance" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Back to Top Button -->
-    <a href="#home" class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
+        <span>CHAT</span>
     </a>
 
     <!-- Header -->
@@ -1196,7 +1364,7 @@
                 </div>
                 <div class="logo-text">
                     <h1>HomeVista</h1>
-                    <p>Premium Real Estate</p>
+                    <p>PREMIUM REAL ESTATE</p>
                 </div>
             </a>
 
@@ -1206,12 +1374,12 @@
 
             <nav class="main-nav" id="mainNav">
                 <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#properties">Properties</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#properties"><i class="fas fa-building"></i> Properties</a></li>
+                    <li><a href="#calculator"><i class="fas fa-calculator"></i> Calculator</a></li>
+                    <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="#whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
                 </ul>
             </nav>
 
@@ -1220,6 +1388,9 @@
                     <i class="fas fa-phone-alt"></i>
                     <span>8651744312</span>
                 </a>
+                <a href="https://wa.me/918651744312" class="btn btn-whatsapp" target="_blank" style="padding: 12px 25px;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
         </div>
     </header>
@@ -1227,21 +1398,46 @@
     <!-- Hero Section -->
     <section class="hero-section" id="home">
         <div class="container hero-content">
-            <h1>Discover Your Dream Property with <span class="highlight">HomeVista</span></h1>
-            <p>We provide complete real estate solutions for plots, flats, houses, and commercial properties. Whether you want to buy, sell, or rent, we help you find the best property at the right price.</p>
+            <h1>Discover Your <span class="highlight">Dream Property</span> With Premium Real Estate Solutions</h1>
+            <p>HomeVista offers complete property solutions for buying, selling, and renting residential & commercial properties. Verified listings, expert guidance, and transparent deals guaranteed.</p>
             <div class="hero-buttons">
-                <a href="#properties" class="btn btn-primary">Explore Properties</a>
-                <a href="#contact" class="btn btn-secondary">Free Consultation</a>
+                <a href="#properties" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Explore Properties
+                </a>
+                <a href="https://wa.me/918651744312?text=Hello%20HomeVista%2C%20I%20need%20a%20free%20property%20consultation" 
+                   class="btn btn-secondary" 
+                   target="_blank">
+                    <i class="fab fa-whatsapp"></i> Free WhatsApp Consultation
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <h3>500+</h3>
+                    <p>Properties Sold</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>250+</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>12+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>50+</h3>
+                    <p>Builder Partners</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Properties -->
+    <!-- Properties Section -->
     <section class="featured-properties section-padding" id="properties">
         <div class="container">
             <div class="section-title">
-                <h2>Featured Properties</h2>
-                <p>Explore our handpicked selection of premium residential and commercial properties</p>
+                <h2>Premium Property Collection</h2>
+                <p>Browse our exclusive selection of verified residential and commercial properties. Each listing includes complete details and instant WhatsApp connectivity.</p>
             </div>
             
             <div class="property-filters">
@@ -1255,7 +1451,7 @@
                     <i class="fas fa-building"></i> Commercial
                 </button>
                 <button class="filter-btn" data-filter="plot">
-                    <i class="fas fa-map"></i> Plots/Land
+                    <i class="fas fa-map-marker-alt"></i> Plots & Land
                 </button>
                 <button class="filter-btn" data-filter="rent">
                     <i class="fas fa-key"></i> For Rent
@@ -1270,7 +1466,10 @@
                         <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Modern Apartment">
                     </div>
                     <div class="property-info">
-                        <div class="property-price">₹ 85,00,000</div>
+                        <div class="property-price">
+                            ₹ 85,00,000
+                            <span><i class="fas fa-map-marker-alt"></i> South Delhi</span>
+                        </div>
                         <h3 class="property-title">Luxury 3BHK Apartment</h3>
                         <div class="property-location">
                             <i class="fas fa-map-marker-alt"></i> Prime City Center, South Delhi
@@ -1290,8 +1489,13 @@
                             </div>
                         </div>
                         <div class="property-actions">
-                            <button class="btn btn-primary view-details" data-property="1">View Details</button>
-                            <button class="btn btn-outline contact-owner" data-property="1">Contact</button>
+                            <button class="btn btn-primary view-details" data-property="luxury-apartment">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn btn-whatsapp whatsapp-inquiry" 
+                                    data-property="Luxury 3BHK Apartment in South Delhi - ₹85,00,000">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1300,10 +1504,13 @@
                 <div class="property-card" data-category="commercial rent">
                     <div class="property-badge">For Rent</div>
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Commercial Office Space">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Commercial Office">
                     </div>
                     <div class="property-info">
-                        <div class="property-price">₹ 1,20,000/month</div>
+                        <div class="property-price">
+                            ₹ 1,20,000/month
+                            <span><i class="fas fa-map-marker-alt"></i> Gurgaon</span>
+                        </div>
                         <h3 class="property-title">Premium Office Space</h3>
                         <div class="property-location">
                             <i class="fas fa-map-marker-alt"></i> Business District, Gurgaon
@@ -1323,8 +1530,13 @@
                             </div>
                         </div>
                         <div class="property-actions">
-                            <button class="btn btn-primary view-details" data-property="2">View Details</button>
-                            <button class="btn btn-outline contact-owner" data-property="2">Contact</button>
+                            <button class="btn btn-primary view-details" data-property="office-space">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn btn-whatsapp whatsapp-inquiry"
+                                    data-property="Premium Office Space in Gurgaon - ₹1,20,000/month">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1336,7 +1548,10 @@
                         <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Residential Plot">
                     </div>
                     <div class="property-info">
-                        <div class="property-price">₹ 50,00,000</div>
+                        <div class="property-price">
+                            ₹ 50,00,000
+                            <span><i class="fas fa-map-marker-alt"></i> Noida</span>
+                        </div>
                         <h3 class="property-title">Residential Plot</h3>
                         <div class="property-location">
                             <i class="fas fa-map-marker-alt"></i> Developing Suburb, Noida
@@ -1356,15 +1571,117 @@
                             </div>
                         </div>
                         <div class="property-actions">
-                            <button class="btn btn-primary view-details" data-property="3">View Details</button>
-                            <button class="btn btn-outline contact-owner" data-property="3">Contact</button>
+                            <button class="btn btn-primary view-details" data-property="residential-plot">
+                                <i class="fas fa-eye"></i> View Details
+                            </button>
+                            <button class="btn btn-whatsapp whatsapp-inquiry"
+                                    data-property="Residential Plot in Noida - ₹50,00,000">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="#contact" class="btn btn-secondary" style="padding: 15px 40px;">View All Properties</a>
+            <div style="text-align: center; margin-top: 70px;">
+                <a href="https://wa.me/918651744312?text=Hello%20HomeVista%2C%20I%20want%20to%20see%20more%20property%20options" 
+                   class="btn btn-secondary" 
+                   target="_blank"
+                   style="padding: 18px 45px; font-size: 1.1rem;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp for More Properties
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Calculator -->
+    <section class="calculator-section section-padding" id="calculator">
+        <div class="container calculator-container">
+            <h2>Property Investment Calculator</h2>
+            <p>Calculate your EMI, property taxes, registration charges, and estimate returns on your property investment</p>
+            
+            <div class="calculator-box">
+                <div class="calculator-inputs">
+                    <div class="calc-group">
+                        <label for="propertyValue"><i class="fas fa-rupee-sign"></i> Property Value (₹)</label>
+                        <input type="range" id="propertyValue" class="calc-input" min="1000000" max="50000000" step="500000" value="5000000">
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <span id="propertyValueMin">10 Lakh</span>
+                            <span id="propertyValueDisplay">50 Lakh</span>
+                            <span id="propertyValueMax">5 Crore</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-group">
+                        <label for="downPayment"><i class="fas fa-percentage"></i> Down Payment (%)</label>
+                        <input type="range" id="downPayment" class="calc-input" min="10" max="90" step="5" value="20">
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <span id="downPaymentMin">10%</span>
+                            <span id="downPaymentDisplay">20%</span>
+                            <span id="downPaymentMax">90%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-group">
+                        <label for="loanTenure"><i class="fas fa-calendar-alt"></i> Loan Tenure (Years)</label>
+                        <input type="range" id="loanTenure" class="calc-input" min="5" max="30" step="1" value="20">
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <span id="loanTenureMin">5 Years</span>
+                            <span id="loanTenureDisplay">20 Years</span>
+                            <span id="loanTenureMax">30 Years</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-group">
+                        <label for="interestRate"><i class="fas fa-chart-line"></i> Interest Rate (%)</label>
+                        <input type="range" id="interestRate" class="calc-input" min="6" max="12" step="0.1" value="8.5">
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <span id="interestRateMin">6%</span>
+                            <span id="interestRateDisplay">8.5%</span>
+                            <span id="interestRateMax">12%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="calculateBtn" class="btn btn-secondary" style="width: 100%; padding: 18px; font-size: 1.1rem;">
+                    <i class="fas fa-calculator"></i> Calculate EMI & Total Cost
+                </button>
+                
+                <div class="calc-results" id="calcResults">
+                    <div class="calc-result-item">
+                        <span>Property Value:</span>
+                        <span id="resultPropertyValue">₹ 50,00,000</span>
+                    </div>
+                    <div class="calc-result-item">
+                        <span>Down Payment (20%):</span>
+                        <span id="resultDownPayment">₹ 10,00,000</span>
+                    </div>
+                    <div class="calc-result-item">
+                        <span>Loan Amount:</span>
+                        <span id="resultLoanAmount">₹ 40,00,000</span>
+                    </div>
+                    <div class="calc-result-item">
+                        <span>Monthly EMI:</span>
+                        <span id="resultEMI">₹ 34,785</span>
+                    </div>
+                    <div class="calc-result-item">
+                        <span>Total Interest Payable:</span>
+                        <span id="resultTotalInterest">₹ 43,48,400</span>
+                    </div>
+                    <div class="calc-result-item">
+                        <span>Total Payment (Property + Interest):</span>
+                        <span id="resultTotalPayment">₹ 93,48,400</span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="https://wa.me/918651744312?text=I%20used%20your%20calculator%20and%20want%20to%20discuss%20property%20options" 
+                       class="btn btn-whatsapp"
+                       target="_blank"
+                       style="padding: 16px 35px;">
+                        <i class="fab fa-whatsapp"></i> Discuss with Expert on WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1373,182 +1690,113 @@
     <section class="services-section section-padding" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Our Services</h2>
-                <p>Comprehensive real estate solutions for all your property needs</p>
+                <h2>Our Premium Services</h2>
+                <p>Comprehensive real estate solutions designed to meet all your property needs with expert guidance and support</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-house-user"></i>
+                        <i class="fas fa-home"></i>
                     </div>
-                    <h3>Residential Properties</h3>
-                    <p>Find your perfect home from a wide selection of plots, flats, and independent houses in prime locations.</p>
+                    <h3>Residential Property</h3>
+                    <p>Find perfect homes, apartments, villas with verified listings, legal clearance and complete documentation support.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-building"></i>
                     </div>
-                    <h3>Commercial Properties</h3>
-                    <p>Shop, office spaces, showrooms, and warehouses for your business needs with flexible lease options.</p>
+                    <h3>Commercial Spaces</h3>
+                    <p>Office spaces, shops, warehouses with flexible lease options, business approvals and location analysis.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-hard-hat"></i>
+                        <i class="fas fa-map-marked-alt"></i>
                     </div>
-                    <h3>Builder Projects</h3>
-                    <p>Partner with leading builders and developers for new residential projects and investment opportunities.</p>
+                    <h3>Plots & Land</h3>
+                    <p>Residential and commercial plots with clear titles, development potential assessment and investment guidance.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Brokerage Services</h3>
-                    <p>Professional real estate agent services for buying, selling, and renting properties with complete transparency.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Property Valuation</h3>
-                    <p>Accurate market valuation of your property with detailed analysis and investment consultation.</p>
+                    <h3>Property Management</h3>
+                    <p>End-to-end property management including tenant sourcing, rent collection, maintenance and legal compliance.</p>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-file-contract"></i>
                     </div>
-                    <h3>Legal Support</h3>
-                    <p>Complete documentation support and legal assistance for all property transactions.</p>
+                    <h3>Legal & Documentation</h3>
+                    <p>Complete legal support for property registration, title verification, agreements and regulatory compliance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Investment Advisory</h3>
+                    <p>Expert advice on property investment, market trends, ROI analysis and portfolio diversification strategies.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Us -->
-    <section class="about-section section-padding" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About HomeVista</h2>
-                <p>Your trusted partner for all real estate needs with a commitment to transparency and customer satisfaction.</p>
+    <!-- WhatsApp Automation -->
+    <section class="whatsapp-section section-padding" id="whatsapp">
+        <div class="container whatsapp-container">
+            <h2>Instant Property Assistance via WhatsApp</h2>
+            <p>Get instant responses, property details, virtual tours, site visit scheduling, and expert advice directly on WhatsApp</p>
+            
+            <a href="https://wa.me/918651744312?text=Hello%20HomeVista%2C%20I%20need%20immediate%20property%20assistance" 
+               class="btn btn-primary"
+               target="_blank"
+               style="background: white; color: #25D366; padding: 18px 45px; font-size: 1.2rem; margin-bottom: 30px;">
+                <i class="fab fa-whatsapp"></i> Start WhatsApp Chat Now
+            </a>
+            
+            <div class="whatsapp-features">
+                <div class="whatsapp-feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Response</h3>
+                    <p>Get replies within minutes for any property query</p>
+                </div>
+                <div class="whatsapp-feature">
+                    <i class="fas fa-images"></i>
+                    <h3>Photo/Video Tours</h3>
+                    <p>Receive property photos, videos and virtual tours</p>
+                </div>
+                <div class="whatsapp-feature">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Schedule Visits</h3>
+                    <p>Book property site visits directly via WhatsApp</p>
+                </div>
+                <div class="whatsapp-feature">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Document Sharing</h3>
+                    <p>Get property documents and legal papers instantly</p>
+                </div>
             </div>
             
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=70" alt="HomeVista Real Estate">
-                    <div class="experience-badge">
-                        <span>12+</span>
-                        <span>Years Experience</span>
+            <div style="margin-top: 60px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 25px;">Quick WhatsApp Commands</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+                        <div style="font-weight: 700; margin-bottom: 10px;">"Properties in Delhi"</div>
+                        <div style="opacity: 0.9; font-size: 0.9rem;">Get listings in specific location</div>
                     </div>
-                </div>
-                
-                <div class="about-text">
-                    <h3>Your Trusted Property Partner</h3>
-                    <p><strong>HomeVista</strong> is a professional real estate service provider offering reliable property solutions for individuals, builders, developers, and businesses.</p>
-                    <p>With our extensive market knowledge and customer-focused service, we make property transactions simple, transparent, and secure.</p>
-                    
-                    <h4 style="margin-top: 30px; color: var(--dark); font-size: 1.5rem;">Why Choose Us?</h4>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check-circle"></i> Verified properties with complete documentation</li>
-                        <li><i class="fas fa-check-circle"></i> Honest pricing with no hidden charges</li>
-                        <li><i class="fas fa-check-circle"></i> Local market expertise and legal support</li>
-                        <li><i class="fas fa-check-circle"></i> Quick response and dedicated customer support</li>
-                        <li><i class="fas fa-check-circle"></i> End-to-end assistance in property transactions</li>
-                        <li><i class="fas fa-check-circle"></i> Strong network with builders and developers</li>
-                    </ul>
-                    
-                    <div style="margin-top: 40px;">
-                        <a href="#contact" class="btn btn-primary">Contact Us Today</a>
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+                        <div style="font-weight: 700; margin-bottom: 10px;">"3BHK under 1 Cr"</div>
+                        <div style="opacity: 0.9; font-size: 0.9rem;">Search by budget & requirements</div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats-section">
-        <div class="container stats-container">
-            <div class="stat-item">
-                <h3>500+</h3>
-                <p>Properties Sold</p>
-            </div>
-            <div class="stat-item">
-                <h3>12+</h3>
-                <p>Years Experience</p>
-            </div>
-            <div class="stat-item">
-                <h3>250+</h3>
-                <p>Happy Clients</p>
-            </div>
-            <div class="stat-item">
-                <h3>50+</h3>
-                <p>Builder Partners</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials-section section-padding" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>What our clients say about their experience with HomeVista</p>
-            </div>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial-slide active" id="slide1">
-                    <div class="testimonial-text">
-                        "HomeVista helped us find our dream home within our budget. Their team was professional, transparent, and guided us through every step of the process. Highly recommended!"
+                    <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+                        <div style="font-weight: 700; margin-bottom: 10px;">"Site visit Saturday"</div>
+                        <div style="opacity: 0.9; font-size: 0.9rem;">Book property visit appointment</div>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajesh Sharma">
-                        </div>
-                        <div class="author-info">
-                            <h4>Rajesh Sharma</h4>
-                            <p>Purchased 3BHK in South Delhi</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide" id="slide2">
-                    <div class="testimonial-text">
-                        "As a first-time investor, I was hesitant about property investment. HomeVista provided excellent guidance and helped me secure a commercial property with great rental yield."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Mehta">
-                        </div>
-                        <div class="author-info">
-                            <h4>Priya Mehta</h4>
-                            <p>Commercial Property Investor</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide" id="slide3">
-                    <div class="testimonial-text">
-                        "The team at HomeVista sold our family property at a price 15% higher than market rate. Their negotiation skills and market knowledge are exceptional."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Amit Patel">
-                        </div>
-                        <div class="author-info">
-                            <h4>Amit Patel</h4>
-                            <p>Sold ancestral property in Noida</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-nav">
-                    <div class="testimonial-dot active" data-slide="1"></div>
-                    <div class="testimonial-dot" data-slide="2"></div>
-                    <div class="testimonial-dot" data-slide="3"></div>
                 </div>
             </div>
         </div>
@@ -1558,16 +1806,46 @@
     <section class="contact-section section-padding" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch with our real estate experts for personalized property solutions</p>
+                <h2>Contact HomeVista</h2>
+                <p>Multiple ways to connect with our real estate experts. WhatsApp is the fastest for immediate response!</p>
             </div>
             
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
-                    <p>Reach out to us for any property requirements or queries. Our team is available to assist you.</p>
+                    <p>We're here to help you with all your property needs. Choose your preferred way to connect with our experts.</p>
                     
                     <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>8651744312<br>Mon-Sat: 9AM-8PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>24/7 Available<br>Instant property details & queries</p>
+                                <a href="https://wa.me/918651744312" 
+                                   class="btn btn-whatsapp" 
+                                   target="_blank"
+                                   style="margin-top: 15px; padding: 10px 20px; font-size: 0.9rem;">
+                                    <i class="fab fa-whatsapp"></i> Start Chat
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>realestate@gmail.com<br>HomeVista@gmail.com</p>
+                            </div>
+                        </div>
+                        
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <div>
@@ -1575,73 +1853,58 @@
                                 <p>123 Property Plaza, Real Estate Avenue<br>New Delhi, India - 110001</p>
                             </div>
                         </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
-                                <h4>Phone Number</h4>
-                                <p>8651744312<br>WhatsApp Available 24/7</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email Address</h4>
-                                <p>realestate@gmail.com<br>HomeVista@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Working Hours</h4>
-                                <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 25px;">Send Enquiry</h3>
+                    <h3 style="margin-bottom: 30px; font-size: 1.8rem;">Send Quick Enquiry</h3>
                     <form id="enquiryForm">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
                             </div>
                             
                             <div class="form-group">
                                 <label for="phone">Mobile Number *</label>
-                                <input type="tel" id="phone" class="form-control" placeholder="Enter your mobile number" required>
+                                <input type="tel" id="phone" class="form-control" placeholder="Enter 10-digit mobile number" required>
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email address">
                         </div>
                         
                         <div class="form-group">
-                            <label for="requirement">Property Requirement *</label>
-                            <select id="requirement" class="form-control" required>
-                                <option value="">Select requirement</option>
-                                <option value="buy">Buy Property</option>
-                                <option value="sell">Sell Property</option>
-                                <option value="rent">Rent Property</option>
-                                <option value="commercial">Commercial Lease</option>
-                                <option value="plot">Buy Plot/Land</option>
+                            <label for="interest">I'm Interested In *</label>
+                            <select id="interest" class="form-control" required>
+                                <option value="">Select option</option>
+                                <option value="buy">Buying Property</option>
+                                <option value="sell">Selling Property</option>
+                                <option value="rent">Renting Property</option>
+                                <option value="plot">Buying Plot/Land</option>
+                                <option value="commercial">Commercial Space</option>
                                 <option value="valuation">Property Valuation</option>
-                                <option value="other">Other</option>
+                                <option value="consultation">Investment Consultation</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" class="form-control" placeholder="Tell us about your specific requirements..." rows="4"></textarea>
+                            <label for="message">Your Requirements</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your specific requirements, budget, location preference, etc." rows="4"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 1.1rem;">Submit Enquiry</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem; margin-top: 10px;">
+                            Submit Enquiry & Get Free Consultation
+                        </button>
+                        
+                        <div style="text-align: center; margin-top: 25px; color: var(--gray); font-size: 0.95rem;">
+                            OR <a href="https://wa.me/918651744312" 
+                                 style="color: var(--primary); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--secondary); padding-bottom: 2px;">
+                                Click here to message directly on WhatsApp
+                            </a> for faster response
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1654,13 +1917,23 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h2>HomeVista</h2>
-                    <p>Your trusted partner for all real estate needs. We provide complete solutions for buying, selling, and renting residential and commercial properties.</p>
+                    <p>Your trusted partner for premium real estate solutions in Delhi NCR. We specialize in buying, selling, and renting residential & commercial properties with complete transparency.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://wa.me/918651744312" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/918651744312" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
                 
@@ -1669,8 +1942,8 @@
                     <ul>
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
                         <li><a href="#properties"><i class="fas fa-chevron-right"></i> Properties</a></li>
+                        <li><a href="#calculator"><i class="fas fa-chevron-right"></i> Investment Calculator</a></li>
                         <li><a href="#services"><i class="fas fa-chevron-right"></i> Our Services</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
                     </ul>
                 </div>
@@ -1678,11 +1951,11 @@
                 <div class="footer-links">
                     <h3>Our Services</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Buy Property</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sell Property</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Rent/Lease Property</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Property Valuation</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Investment Consultation</a></li>
+                        <li><a href="https://wa.me/918651744312?text=I%20want%20to%20buy%20a%20property" target="_blank"><i class="fas fa-chevron-right"></i> Buy Property</a></li>
+                        <li><a href="https://wa.me/918651744312?text=I%20want%20to%20sell%20my%20property" target="_blank"><i class="fas fa-chevron-right"></i> Sell Property</a></li>
+                        <li><a href="https://wa.me/918651744312?text=I%20want%20to%20rent%20a%20property" target="_blank"><i class="fas fa-chevron-right"></i> Rent Property</a></li>
+                        <li><a href="https://wa.me/918651744312?text=I%20need%20property%20valuation" target="_blank"><i class="fas fa-chevron-right"></i> Property Valuation</a></li>
+                        <li><a href="https://wa.me/918651744312?text=I%20need%20legal%20document%20help" target="_blank"><i class="fas fa-chevron-right"></i> Legal Documentation</a></li>
                     </ul>
                 </div>
                 
@@ -1690,15 +1963,17 @@
                     <h3>Contact Info</h3>
                     <ul>
                         <li><a href="tel:8651744312"><i class="fas fa-phone-alt"></i> 8651744312</a></li>
+                        <li><a href="https://wa.me/918651744312" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp: 8651744312</a></li>
                         <li><a href="mailto:realestate@gmail.com"><i class="fas fa-envelope"></i> realestate@gmail.com</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Property Plaza, New Delhi</a></li>
-                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Sat: 9AM-8PM</a></li>
+                        <li><a href="mailto:HomeVista@gmail.com"><i class="fas fa-envelope"></i> HomeVista@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> New Delhi, India</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>© 2025 HomeVista | All Rights Reserved | Designed for Real Estate Buy • Sell • Rent Services</p>
+                <p>© 2025 HomeVista Premium Real Estate Services | All Rights Reserved | Buy • Sell • Rent Properties</p>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: rgba(255,255,255,0.5);">For immediate assistance, WhatsApp us at 8651744312 | Response within 5 minutes</p>
             </div>
         </div>
     </footer>
@@ -1726,18 +2001,14 @@
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('mainHeader');
-            const backToTop = document.getElementById('backToTop');
-            
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
-                backToTop.classList.add('active');
             } else {
                 header.classList.remove('scrolled');
-                backToTop.classList.remove('active');
             }
         });
         
-        // Property Filtering
+        // Property Filtering with Animation
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', function() {
                 // Remove active class from all buttons
@@ -1752,86 +2023,193 @@
                 const propertyCards = document.querySelectorAll('.property-card');
                 
                 propertyCards.forEach(card => {
-                    if (filter === 'all') {
-                        card.style.display = 'block';
+                    card.style.opacity = '0.5';
+                    card.style.transform = 'scale(0.95)';
+                    
+                    setTimeout(() => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            const category = card.getAttribute('data-category');
+                            if (category.includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                        
                         setTimeout(() => {
                             card.style.opacity = '1';
-                        }, 10);
-                    } else {
-                        const categories = card.getAttribute('data-category').split(' ');
-                        if (categories.includes(filter)) {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                            }, 10);
-                        } else {
-                            card.style.opacity = '0';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    }
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    }, 300);
                 });
             });
         });
         
-        // Property Details Modal (simulated)
-        document.querySelectorAll('.view-details').forEach(button => {
+        // WhatsApp Inquiry for Properties
+        document.querySelectorAll('.whatsapp-inquiry').forEach(button => {
             button.addEventListener('click', function() {
-                const propertyId = this.getAttribute('data-property');
-                alert(`Property ${propertyId} details:\n\nThis is a premium property with all modern amenities. Contact us at 8651744312 for a site visit and complete details.`);
-            });
-        });
-        
-        // Contact Owner
-        document.querySelectorAll('.contact-owner').forEach(button => {
-            button.addEventListener('click', function() {
-                const propertyId = this.getAttribute('data-property');
+                const propertyInfo = this.getAttribute('data-property');
                 const phoneNumber = "918651744312";
-                const message = `Hello HomeVista, I am interested in Property ${propertyId}. Please share more details.`;
+                const message = `Hello HomeVista, I'm interested in this property: ${propertyInfo}. Please share more details and availability.`;
                 window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
             });
         });
         
-        // Testimonial Slider
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-        
-        testimonialDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const slideId = this.getAttribute('data-slide');
-                
-                // Update dots
-                testimonialDots.forEach(d => d.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Update slides
-                testimonialSlides.forEach(slide => {
-                    slide.classList.remove('active');
-                    if (slide.id === `slide${slideId}`) {
-                        slide.classList.add('active');
+        // View Details Modal
+        document.querySelectorAll('.view-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const propertyId = this.getAttribute('data-property');
+                const propertyDetails = {
+                    'luxury-apartment': {
+                        title: 'Luxury 3BHK Apartment in South Delhi',
+                        price: '₹ 85,00,000',
+                        details: `• 3 Bedrooms, 3 Bathrooms\n• 1850 sqft Super Area\n• Fully Furnished with Modular Kitchen\n• South Facing with City View\n• 24/7 Security & CCTV\n• 2 Covered Car Parking\n• Clubhouse with Gym & Pool\n• Children's Play Area\n• Power Backup\n• Ready to Move\n• All Legal Documents Verified\n• 5 Years Old Property\n• Excellent Location near Metro`,
+                        features: ['Modular Kitchen', 'Wooden Flooring', 'Central AC', 'Balcony', 'Servant Room', 'Pooja Room']
+                    },
+                    'office-space': {
+                        title: 'Premium Office Space in Gurgaon',
+                        price: '₹ 1,20,000/month',
+                        details: `• 2200 sqft Office Space\n• 6 Private Cabins + 1 Conference Room\n• Reception Area with Seating\n• Pantry & Separate Washrooms\n• High-Speed Internet & WiFi\n• Central AC with Individual Controls\n• False Ceiling with LED Lighting\n• Fire Safety System\n• 24/7 Building Security\n• Available Immediately\n• 2 Year Lease Option\n• Prime Business District Location`,
+                        features: ['Conference Room', 'Pantry', 'WiFi', 'Parking', 'Security', 'Maintenance']
+                    },
+                    'residential-plot': {
+                        title: 'Residential Plot in Noida',
+                        price: '₹ 50,00,000',
+                        details: `• 500 sqyd Residential Plot\n• 30ft Wide Road Frontage\n• Water & Electricity Connection Available\n• Clear Title & All Approvals\n• Approved Building Plan Available\n• Prime Location in Developing Area\n• Near Proposed Metro Station\n• Good Investment Potential\n• Plot Facing East\n• Gated Community Option Available\n• All Legal Documents Verified\n• Immediate Registration Possible`,
+                        features: ['East Facing', '30ft Road', 'Water', 'Electricity', 'Approved Plan', 'Clear Title']
                     }
-                });
+                };
+                
+                const property = propertyDetails[propertyId];
+                if (property) {
+                    const modalHTML = `
+                        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                            <div style="background: white; border-radius: 20px; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative;">
+                                <div style="padding: 40px;">
+                                    <button id="closeModal" style="position: absolute; top: 20px; right: 20px; background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem; cursor: pointer;">×</button>
+                                    
+                                    <h2 style="font-size: 2rem; color: var(--dark); margin-bottom: 15px;">${property.title}</h2>
+                                    <div style="font-size: 1.8rem; color: var(--primary); font-weight: 800; margin-bottom: 25px;">${property.price}</div>
+                                    
+                                    <div style="background: var(--light-gray); padding: 25px; border-radius: 15px; margin-bottom: 30px;">
+                                        <h3 style="margin-bottom: 15px; color: var(--dark);">Property Details:</h3>
+                                        <pre style="white-space: pre-wrap; font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--dark);">${property.details}</pre>
+                                    </div>
+                                    
+                                    <div style="margin-bottom: 30px;">
+                                        <h3 style="margin-bottom: 15px; color: var(--dark);">Key Features:</h3>
+                                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                            ${property.features.map(feature => `
+                                                <span style="background: var(--primary-light); color: var(--primary); padding: 10px 20px; border-radius: 50px; font-weight: 500;">${feature}</span>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="display: flex; gap: 15px;">
+                                        <a href="https://wa.me/918651744312?text=I'm interested in ${encodeURIComponent(property.title)} at ${property.price}" 
+                                           class="btn btn-whatsapp" 
+                                           target="_blank"
+                                           style="flex: 1; padding: 16px; font-size: 1.1rem;">
+                                            <i class="fab fa-whatsapp"></i> WhatsApp for Details
+                                        </a>
+                                        <button id="closeModalBtn" class="btn btn-outline" style="flex: 1; padding: 16px; font-size: 1.1rem;">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    const modalDiv = document.createElement('div');
+                    modalDiv.innerHTML = modalHTML;
+                    document.body.appendChild(modalDiv);
+                    
+                    // Close modal functions
+                    document.getElementById('closeModal').addEventListener('click', () => modalDiv.remove());
+                    document.getElementById('closeModalBtn').addEventListener('click', () => modalDiv.remove());
+                    modalDiv.addEventListener('click', (e) => {
+                        if (e.target === modalDiv) modalDiv.remove();
+                    });
+                }
             });
         });
         
-        // Auto-rotate testimonials
-        let currentTestimonial = 1;
-        setInterval(() => {
-            currentTestimonial = currentTestimonial < 3 ? currentTestimonial + 1 : 1;
+        // Property Calculator
+        const propertyValueSlider = document.getElementById('propertyValue');
+        const downPaymentSlider = document.getElementById('downPayment');
+        const loanTenureSlider = document.getElementById('loanTenure');
+        const interestRateSlider = document.getElementById('interestRate');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const calcResults = document.getElementById('calcResults');
+        
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+        
+        // Update display values
+        function updateSliderDisplays() {
+            document.getElementById('propertyValueDisplay').textContent = formatCurrency(propertyValueSlider.value);
+            document.getElementById('downPaymentDisplay').textContent = downPaymentSlider.value + '%';
+            document.getElementById('loanTenureDisplay').textContent = loanTenureSlider.value + ' Years';
+            document.getElementById('interestRateDisplay').textContent = interestRateSlider.value + '%';
+        }
+        
+        // Calculate EMI
+        function calculateEMI() {
+            const propertyValue = parseFloat(propertyValueSlider.value);
+            const downPaymentPercent = parseFloat(downPaymentSlider.value);
+            const loanTenureYears = parseFloat(loanTenureSlider.value);
+            const interestRate = parseFloat(interestRateSlider.value);
             
-            // Update dots
-            testimonialDots.forEach(d => d.classList.remove('active'));
-            document.querySelector(`.testimonial-dot[data-slide="${currentTestimonial}"]`).classList.add('active');
+            const downPayment = propertyValue * (downPaymentPercent / 100);
+            const loanAmount = propertyValue - downPayment;
+            const monthlyInterestRate = interestRate / 12 / 100;
+            const loanTenureMonths = loanTenureYears * 12;
             
-            // Update slides
-            testimonialSlides.forEach(slide => {
-                slide.classList.remove('active');
-                if (slide.id === `slide${currentTestimonial}`) {
-                    slide.classList.add('active');
-                }
-            });
-        }, 5000);
+            // EMI Calculation Formula
+            const emi = loanAmount * monthlyInterestRate * 
+                       Math.pow(1 + monthlyInterestRate, loanTenureMonths) / 
+                       (Math.pow(1 + monthlyInterestRate, loanTenureMonths) - 1);
+            
+            const totalPayment = emi * loanTenureMonths;
+            const totalInterest = totalPayment - loanAmount;
+            
+            // Update results
+            document.getElementById('resultPropertyValue').textContent = formatCurrency(propertyValue);
+            document.getElementById('resultDownPayment').textContent = formatCurrency(downPayment);
+            document.getElementById('resultLoanAmount').textContent = formatCurrency(loanAmount);
+            document.getElementById('resultEMI').textContent = formatCurrency(Math.round(emi));
+            document.getElementById('resultTotalInterest').textContent = formatCurrency(Math.round(totalInterest));
+            document.getElementById('resultTotalPayment').textContent = formatCurrency(Math.round(totalPayment + downPayment));
+            
+            // Show results
+            calcResults.classList.add('active');
+        }
+        
+        // Event listeners for sliders
+        [propertyValueSlider, downPaymentSlider, loanTenureSlider, interestRateSlider].forEach(slider => {
+            slider.addEventListener('input', updateSliderDisplays);
+        });
+        
+        // Calculate button
+        calculateBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            calculateEMI();
+            
+            // Scroll to results
+            calcResults.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+        
+        // Initialize
+        updateSliderDisplays();
         
         // Form Submission
         document.getElementById('enquiryForm').addEventListener('submit', function(e) {
@@ -1840,15 +2218,23 @@
             // Get form values
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
-            const requirement = document.getElementById('requirement').value;
+            const interest = document.getElementById('interest').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
             
             // Simple validation
-            if (name && phone && requirement) {
-                // In a real application, you would send this data to a server
-                alert(`Thank you ${name}! Your enquiry has been submitted successfully. We will contact you at ${phone} within 24 hours.`);
+            if (name && phone && interest) {
+                // Create WhatsApp message
+                const whatsappMessage = `New Enquiry from HomeVista Website:%0A%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email || 'Not provided'}%0AInterest: ${document.getElementById('interest').options[document.getElementById('interest').selectedIndex].text}%0ARequirements: ${message || 'No specific requirements'}`;
+                
+                // Open WhatsApp with pre-filled message
+                window.open(`https://wa.me/918651744312?text=${whatsappMessage}`, '_blank');
+                
+                // Show confirmation
+                alert(`Thank you ${name}! Your enquiry has been submitted. We've also opened WhatsApp for you to send the details directly.`);
                 document.getElementById('enquiryForm').reset();
             } else {
-                alert('Please fill in all required fields (Name, Phone, and Property Requirement).');
+                alert('Please fill in all required fields (Name, Phone, and Interest).');
             }
         });
         
@@ -1863,7 +2249,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 90,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
@@ -1892,11 +2278,27 @@
             });
         });
         
-        // Initialize animations on scroll
+        // Initialize animations
         window.addEventListener('load', function() {
             // Trigger initial animations
             const heroContent = document.querySelector('.hero-content');
             heroContent.style.animation = 'fadeInUp 1s ease';
+            
+            // Animate stats counter
+            const statElements = document.querySelectorAll('.hero-stat h3');
+            statElements.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current) + '+';
+                }, 30);
+            });
         });
     </script>
 </body>
